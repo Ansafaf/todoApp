@@ -1,10 +1,21 @@
 import { useState } from "react";
 import { TodoForm } from "../components/TodoForm";
 import { TodoList } from "../components/TodoList";
+import { Filter } from "../components/filter";
 
 function TodoPage() {
   const [todos, setTodos] = useState([]);
-
+  const [filter , setFilter] = useState("all");
+  
+  const filteredTodos = todos.filter((todo)=>{
+    if(filter === "active") {
+       return !todo.completed;
+    }
+    if(filter === "completed") {
+       return todo.completed;
+    }
+    return true;
+  })
   const handleAddTodo = (newTodo) => {
     setTodos((prev) => [...prev, newTodo]);
   };
@@ -58,8 +69,9 @@ function TodoPage() {
         </div>
 
         <TodoForm onAddTodo={handleAddTodo} />
+        <Filter filter={filter} onFilterChange={setFilter} />
         <TodoList
-          todos={todos}
+          todos={filteredTodos}
           onDelete={handleDeleteTodo}
           onToggle={handleToggleTodo}
           onEdit={handleEditTodo}

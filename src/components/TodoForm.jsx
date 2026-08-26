@@ -11,7 +11,7 @@ export const TodoForm = ({ onAddTodo }) => {
       setError("Please enter a todo");
       return;
     }
-
+    
     const newTodo = {
       id: Date.now(),
       title: todo.trim(),

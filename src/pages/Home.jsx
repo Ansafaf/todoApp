@@ -9,30 +9,15 @@ function Home() {
           <span className="eyebrow">Smart planning</span>
           <h1>Organize your day with clarity.</h1>
           <p>
-            Capture ideas, track priorities, and turn busy days into focused,
-            productive routines.
+            Keep your tasks in one place, focus on what matters, and make
+            steady progress throughout the day.
           </p>
 
           <div className="hero-actions">
             <Link to={ROUTES.TODOS} className="primary-btn">
-              Go to todos
+              View my tasks
             </Link>
-            <span className="helper-text">Built for calm focus</span>
-          </div>
-        </div>
-
-        <div className="hero-panel" aria-label="Daily task overview">
-          <div className="mini-stat">
-            <span>Today</span>
-            <strong>08 Tasks</strong>
-          </div>
-          <div className="mini-stat accent">
-            <span>Completed</span>
-            <strong>05 Done</strong>
-          </div>
-          <div className="mini-stat">
-            <span>Focus</span>
-            <strong>2 Hours</strong>
+            <span className="helper-text">Simple, focused, and easy to use.</span>
           </div>
         </div>
       </section>
