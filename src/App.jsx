@@ -1,9 +1,14 @@
+import Navbar from "./components/Navbar";
 import AppRoute from "./routes/AppRoute";
-function App(){
+import "./App.css";
+
+function App() {
   return (
-    <>
-    <AppRoute />
-    </>
-  )
+    <div className="app-shell">
+      <Navbar />
+      <AppRoute />
+    </div>
+  );
 }
+
 export default App;
