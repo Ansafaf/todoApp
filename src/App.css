@@ -359,6 +359,7 @@
 .todo-title {
   color: #f8fafc;
   font-size: 1.02rem;
+  overflow-wrap: anywhere;
   word-break: break-word;
 }
 
@@ -396,7 +397,19 @@
   color: #f8fafc;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 980px) {
+  .hero-card {
+    grid-template-columns: 1fr 0.75fr;
+    padding: 28px;
+  }
+
+  .todo-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 760px) {
   .topbar,
   .page {
     width: min(100% - 20px, 1100px);
@@ -410,6 +423,21 @@
   .hero-card {
     grid-template-columns: 1fr;
     padding: 22px 18px;
+  }
+
+  .hero-panel {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding: 14px;
+  }
+
+  .mini-stat {
+    min-width: 0;
+    padding: 14px 12px;
+  }
+
+  .mini-stat strong {
+    font-size: clamp(1rem, 4vw, 1.25rem);
   }
 
   .todo-shell {
@@ -439,5 +467,122 @@
   .nav-link {
     padding: 8px 12px;
     font-size: 0.92rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .topbar,
+  .page {
+    width: min(100% - 16px, 1100px);
+  }
+
+  .topbar {
+    margin-top: 8px;
+    padding: 12px;
+    border-radius: 16px;
+  }
+
+  .brand {
+    gap: 8px;
+    font-size: 1rem;
+  }
+
+  .brand-mark {
+    width: 28px;
+    height: 28px;
+  }
+
+  .nav {
+    gap: 2px;
+  }
+
+  .nav-link {
+    padding: 8px 10px;
+    font-size: 0.82rem;
+  }
+
+  .page {
+    margin: 16px auto 28px;
+  }
+
+  .hero-card,
+  .todo-shell {
+    border-radius: 20px;
+  }
+
+  .hero-card,
+  .todo-shell {
+    padding: 18px 14px;
+  }
+
+  .hero-copy h1,
+  .todo-header h1 {
+    font-size: clamp(2rem, 10vw, 2.5rem);
+    letter-spacing: -0.05em;
+  }
+
+  .hero-copy p {
+    font-size: 0.98rem;
+  }
+
+  .hero-actions {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 22px;
+  }
+
+  .hero-actions .primary-btn {
+    width: 100%;
+  }
+
+  .status-row {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
+    gap: 8px;
+  }
+
+  .status-pill {
+    min-width: 0;
+    padding: 12px 10px;
+  }
+
+  .status-pill strong {
+    font-size: 1.2rem;
+  }
+
+  .input-group {
+    gap: 10px;
+  }
+
+  .add-btn {
+    width: 100%;
+  }
+
+  .todo-item {
+    padding: 14px;
+    gap: 14px;
+  }
+
+  .todo-actions {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
+    gap: 8px;
+  }
+
+  .todo-actions .primary-btn,
+  .todo-actions .ghost-btn,
+  .todo-actions .danger-btn,
+  .todo-actions .save-btn {
+    min-height: 42px;
+    width: 100%;
+    padding: 10px 6px;
+    font-size: 0.82rem;
+  }
+
+  .todo-edit-row .todo-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
