@@ -1,16 +1,42 @@
-import { useState } from "react"
-export const TodoItem = ({todo, onToggle, onDelete})=>{
+import { useState } from "react";
+export const TodoItem = ({todo, onToggle, onDelete,onEdit})=>{
+    const [isEditing, setIsEditing] = useState(false);
+    const [newTitle, setNewTitle] = useState(todo.title);
+    const handleEditClick = ()=>{
+        setIsEditing(true);   
+    }
+    const handleSave = () =>{
+        onEdit(todo.id, newTitle);
+        setIsEditing(false);
+    }
     return (
         <div>
-            <span>{todo.title}</span>
+            {
+                isEditing ? (
+                    <>
+                    <input value = {newTitle} onChange={(e)=> setNewTitle(e.target.value)} />
+                    <button onClick={handleSave}> Save</button>
+                    </>
+                ) : (
+                    <>
 
-            <button onClick={()=> onToggle(todo.id)}>
-                {todo.completed ? "Undo":"Complete"}
-            </button>
+                <span>{todo.title}</span>
 
-            <button onClick={()=> onDelete(todo.id)}>
+               <button onClick={()=> onToggle(todo.id)}>
+                 {todo.completed ? "Undo":"Complete"}
+               </button>
+
+               <button onClick={handleEditClick}>
+                 Edit
+               </button>
+
+               <button onClick={()=> onDelete(todo.id)}>
                 Delete
-            </button>
+               </button>
+
+                 </>
+                )
+            }
         </div>
     )
 }
