@@ -21,6 +21,8 @@ function TodoPage() {
   };
 
   const handleDeleteTodo = (id) => {
+    const isConfirm  = confirm("Are u sure u want to delete");
+    if(!isConfirm) return 
     setTodos((prev) => prev.filter((todo) => todo.id !== id));
   };
 
